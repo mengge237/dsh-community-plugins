@@ -18,12 +18,14 @@
       "patch": "./cordis.patch.yml"
     }
   },
+  "packageManager": "pnpm@11.24.0",
   "scripts": {
     "build": "tsdown",
     "prepare": "tsdown",
     "watch": "tsdown --watch",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "community:check": "node scripts/community-index.cjs --check"
   },
   "license": "BSD-3-Clause",
   "peerDependencies": {
@@ -51,6 +53,7 @@
     "@types/react": "~18.3.1",
     "@types/react-dom": "^18.3.5",
     "jsdom": "^26.0.0",
+    "lightningcss": "^1.32.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tsdown": "0.22.2",
@@ -65,6 +68,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhu1090093659/dsh-web.git"
+    "url": "https://github.com/zhu1090093659/dsh-community-plugins.git"
   }
 }

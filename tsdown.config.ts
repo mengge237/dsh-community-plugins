@@ -4,7 +4,7 @@
  * Uses the repo's shared client-bundle preset (shared/tsdown.client.ts):
  * node-half lib/ plus the browser bundle lib/client.js.
  */
-import { clientBundle } from '../../shared/tsdown.client.ts'
+import { clientBundle } from './shared/tsdown.client.ts'
 
 export default clientBundle('@linxin666/dsh-client-ui-community-plugins', ['src/index.ts'], {
   libExternal: [
