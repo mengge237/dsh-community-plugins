@@ -35,6 +35,14 @@ data file means registration pull requests are serialized by construction.
   resolved by rebuilding the file as current `main` plus the one new entry, never
   by picking a side: both the existing entries and the new one are preserved
   because the two sides never actually disagree about any interior entry.
+- **A plugin registration is assessed on three axes before it enters the
+  index: usefulness, stability, and compatibility.** The index is not a link
+  list — an entry is an install command the store shows to every user, so the
+  review reproduces the install in an isolated `DSH_HOME`, reads the upstream
+  source that backs each described capability, and checks the entry's ids
+  against the existing catalog and the family bundle. A claim that cannot be
+  backed by the repository at review time is reported as unverified rather than
+  accepted on the strength of a README.
 - **Contributors' forks are repaired with a merge commit, not a force push.**
   When a registration pull request conflicts, the branch is advanced by merging
   `main` into it and pushing that merge back. This keeps the contributor's own
@@ -57,6 +65,13 @@ data file means registration pull requests are serialized by construction.
 - **Force-push the contributor's branch into the rebased shape.** Rejected. It
   rewrites a contributor's history for a mechanical conflict, and the merge
   commit preserves the original work and its authorship.
+- **Accept a registration on the strength of the upstream README.** Rejected.
+  `agent-body`'s description claims capabilities (heartbeat, reflex arcs,
+  memory consolidation, a zero-residence context engine) that only the source
+  can confirm, and one of its claims — that the non-core organs install from
+  release tarballs — was already stale for `dsh-anatomy-panel`, which has no
+  tarball in `dist/`. Reading the repository is what separates a store listing
+  from a verified one.
 
 ## Consequences
 
@@ -68,9 +83,14 @@ data file means registration pull requests are serialized by construction.
 - Repairing a contributor's branch adds a merge commit authored by the
   maintainer to their branch. The contributor's commit and its authorship are
   preserved as the first parent.
-- Verification: at the 2026-09-25 round three registrations merged
-  (`dsh-ltm`, `dsh-session-suspend`, `dsh-attention-health`) with
-  `community-index: OK (122 entries)` and the nine index tests passing on each
-  result, and the fourth (`dsh-wx-bridge`) was held pending a description fix.
-  The conflict resolution was checked by diffing the merged id set against both
-  parents' id sets and asserting that no id from either side was lost.
+- Verification: at the 2026-09-25 round the four registrations all merged
+  (`dsh-ltm`, `dsh-session-suspend`, `dsh-attention-health`, then
+  `dsh-wx-bridge` after its description was corrected, then `agent-body`),
+  ending at `community-index: OK (124 entries)` with the nine index tests
+  passing on each result. Each conflict resolution was checked by diffing the
+  merged id set against both parents' id sets and asserting that no id from
+  either side was lost and that no interior entry changed.
+- Later registrations in the same round re-confirmed the append conflict: after
+  `dsh-wx-bridge` merged, `agent-body` and `dsh-wx-bridge` conflicted at the
+  same anchor, so each repair rebuilt the file as current `main` plus the one
+  new entry.
