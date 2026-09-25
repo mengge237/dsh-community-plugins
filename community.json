@@ -1441,5 +1441,28 @@
     "npm": "dsh-attention-health",
     "category": "tools",
     "subcategory": "context"
+  },
+  {
+    "id": "dsh-model-priority",
+    "name": "模型顺序",
+    "nameEn": "Model Priority",
+    "author": "mengge237",
+    "description": "自定义模型 / 提供方的排列顺序：模型设置页里拖拽调整，宿主的模型列表按这份顺序返回（稳定排序、只重排不增删条目）；顺序写回当前生效的配置真源，写前自动备份，并校验模型集合未增删、块外逐行不变。0.1.5 线写 settings.yaml，0.1.7 线起写 profile 用户层 cordis.patch.yml，两代形状都认。",
+    "descriptionEn": "Custom provider/model ordering: drag to reorder on the models settings page and the host model list follows it (stable sort, reorder only, never adds or drops entries). The order is written back to whichever config source is live, with an automatic backup plus checks that the model set is unchanged and every line outside the block is byte-identical. Writes settings.yaml on the 0.1.5 line and the profile user layer cordis.patch.yml from 0.1.7 on - both shapes are parsed.",
+    "repo": "https://github.com/mengge237/dsh-model-priority",
+    "category": "tools",
+    "subcategory": "model"
+  },
+  {
+    "id": "dsh-auto-continue",
+    "name": "自动续写与限流恢复",
+    "nameEn": "Auto Continue & Throttle Recovery",
+    "author": "mengge237",
+    "description": "回合没收尾时自己接上：max-tokens 截断自动续写、429/限流按熔断窗口自动重试、压缩空转补枪。挂点用 agent/status 与 turn/end，注入的是完整 user message；一轮只补有限次，收件箱有待处理输入或用户已接手时自动放弃，避免抢话。",
+    "descriptionEn": "Picks a turn back up when it did not finish: auto-continues max-tokens truncation, retries 429/throttle responses inside a circuit-breaker window, and re-kicks idle compaction. Hooks agent/status and turn/end and injects a full user message; bounded retries per turn, and it stands down when the inbox has pending input or the user already took over.",
+    "repo": "https://github.com/mengge237/dsh-auto-continue",
+    "category": "tools",
+    "subcategory": "context"
   }
+
 ]
