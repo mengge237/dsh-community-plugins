@@ -1408,6 +1408,17 @@
     "subcategory": "render"
   },
   {
+    "id": "dsh-session-suspend",
+    "name": "会话挂起提醒",
+    "nameEn": "Session Suspend Reminder",
+    "author": "Archaofan",
+    "description": "在对话里用一句自然语言挂起当前会话：侧边栏对应行按样式预设高亮，悬停弹出提醒卡片；折叠的工作区显示其中的挂起数量，挂起总览按预设样式区分。",
+    "descriptionEn": "Park the current session with one natural-language note: the matching sidebar row is highlighted by style preset with a hover reminder card, a folded workspace shows how many of its sessions are parked, and the parked overview is differentiated by preset.",
+    "repo": "https://github.com/Archaofan/dsh-sidebar-reminder",
+    "category": "ui",
+    "subcategory": "panel"
+  },
+  {
     "id": "dsh-ltm",
     "name": "本地长期记忆",
     "nameEn": "Local Long-Term Memory",
