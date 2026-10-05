@@ -9,17 +9,21 @@ repository. On the first pass: #15 (ten right-sidebar plugins by lemonhall, a
 first-time contributor), #14 (dsh-whale-musume), #12 (dsh-nexttavern) and #7
 (dsh-zhipu-mcp). #15 is a batch; the other three had a hold from an earlier
 round, and each hold was a claim about the plugin's runtime behaviour rather
-than about the index entry. Since this repository publishes an entry to every
-user who browses the Workshop, the three-axis judgement has to rest on the
-contributor's actual package, not the pull-request text. A second pass then took
-the reworked #15 and a new submission, #17 (dsh-camofox-browser).
+than about the index entry. Three further registrations - #18 (dsh-media-dock),
+#19 (dsh-palate, re-registration after a prune) and #20 (dsh-shipcheck) - were
+opened during the round and were assessed the same way. Since this repository
+publishes an entry to every user who browses the Workshop, the three-axis
+judgement has to rest on the contributor's actual package, not the pull-request
+text. A second pass then took the reworked #15 and a new submission, #17
+(dsh-camofox-browser).
 
 ## Decision
 
 **No entry merged in the round. #15 was held on three of its ten plugins, then
 reworked into a seven-entry pull request and held again on one description; #17
 was held on its shipped configuration; #14, #12 and #7 remain held on upstream
-changes.**
+changes; #18, #19 and #20 are held on a rebase, with #18 also held on its
+published defaults.**
 
 ### First pass
 
@@ -87,6 +91,24 @@ changes.**
   a fresh install has no persisted value, so EFnet wins and the library's
   `DEFAULTS.server = 'irc.libera.chat'` is overridden. The two are different
   networks, so a user who trusts the entry lands somewhere other than expected.
+- **Three new registrations arrived and are held on the rebase alone.**
+  #18 (dsh-media-dock), #19 (dsh-palate re-registration) and #20
+  (dsh-shipcheck) each append one entry and each conflicts with the 132-entry
+  main, which took #21 (dsh-pet-quota) after they were opened; every one of
+  them would drop that entry if merged as-is. All three entries passed on
+  content: #18's yt-dlp/ffmpeg/speechToText pipeline is really in the source
+  (`lib/index.js:344-468`, `:471-509`, `:203`/`:512-538`), and its own
+  media/state tests pass locally; #19 mounts cleanly from git in an isolated
+  `DSH_HOME` (committed `lib/`, no `prepare`), which is the exact failure
+  b89e664 pruned it for; #20 drives a real browser through dsh-pilot and writes
+  its report under `$DSH_HOME/shipcheck/` without touching the inspected
+  project. #18 carries two extra holds: the published `cordis.patch.yml` ships
+  the author's `E:\` output directory and `useProxy: true` with a
+  `127.0.0.1:7897` proxy for every site, and its `openexternal` branch spawns
+  `cmd` with no `child.on('error')`, which took the local reproduction process
+  down with an unhandled `ENOENT` on POSIX. Its entry also omits `npm` even
+  though 0.1.0 is published. #19 and #20 are one description line and two
+  non-blocking suggestions away, respectively.
 - **#17 (dsh-camofox-browser) was held on its shipped configuration.** The
   three-axis read is practical (anti-detection browsing is a real need, and
   `tools / browser` holds only `dsh-pilot`), and the upstream is healthy
@@ -125,6 +147,14 @@ changes.**
   Rejected. A build and a self-test do not show that the shipped defaults work
   anywhere but the author's machine, and a registration entry promises every
   Workshop reader that the plugin does something.
+- **Merging #18/#19/#20 as they stand.** Rejected. All three conflict with the
+  132-entry main, so accepting them means either losing `dsh-pet-quota` or
+  hand-merging a rebase the contributor is one command away from doing;
+  #18 additionally ships machine-specific defaults and an unhandled spawn.
+- **Holding #19 or #20 on the same footing as #7/#12/#14/#15/#17.** Rejected.
+  Their entry layer is correct and their upstreams were verified by
+  re-installing them; the only thing missing is the rebase, which is a
+  contributor edit rather than a reason to keep the entry out.
 
 ## Consequences
 
@@ -132,6 +162,10 @@ changes.**
   description line for #15, an honest description for #14, a compatible peer
   range for #12, `dsh.bundle` plus host-relative module resolution for #7, and
   platform-neutral defaults (or an explicit Windows-only statement) for #17.
+- Three more stay open on a rebase and, for #18, on its published defaults:
+  #18 (plus `npm`), #19 (plus one description line) and #20. The index is
+  unchanged at 132 entries until those land, so no gitlink moved and no market
+  rebuild was needed.
 - The round records a reusable check for this repository: a registration entry's
   description is a user-facing claim, so the three-axis pass has to open the
   package and look for the feature and its defaults, not only confirm that the
