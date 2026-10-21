@@ -1692,8 +1692,8 @@
     "name": "更便捷的输入框",
     "nameEn": "Composer Ease",
     "author": "mengge237",
-    "description": "DSH 网页输入框的补全与编辑增强：括号引号自动配对、选中即环绕、跳过闭符、删掉空对；补全弹层给四类候选（草稿里出现过的词 / 各语言关键字与标签 / 工作区文件路径 / settings 里的模型名），打满两个字母自动弹，顶上还有一行依据写清「凭什么给这张词表」。标准 DSH bundle 插件：一条命令安装，不依赖第三方运行时、不写任何文件、不改宿主源码。",
-    "descriptionEn": "Composer completion and editing for DeepSeek Harness: brackets and quotes pair up as you type, typing an opener over a selection wraps it, a closer typed over an existing closer is skipped, and backspace removes an empty pair. The popup offers four candidate sources (words in your draft, per-language keywords and tags, workspace file paths, model ids from your settings), opens after two letters, and carries a header line saying which word table it used. Standard DSH bundle plugin: one command to install, no third-party runtime dependency, no file writes, no host source changes.",
+    "description": "DSH 网页输入框的补全与编辑增强：括号成对、选中即环绕、跳过闭符、退格删空对；引号只插一个（闭符由家族奇偶在需要时补，全角半角混写也算一对），避免快速连打冒出多余引号。补全走宿主输入触发菜单（ctx.inputTriggers）：`@` 给工作区文件与模型名，`/` 里我们那组提供「严格配对」开关；普通词仍有两个字母起自动弹的弹层（草稿词 / 各语言关键字 / 文件路径 / 模型名），顶上标出「凭什么给这张词表」。标准 DSH bundle 插件：一条命令安装，不依赖第三方运行时、不写任何文件、不改宿主源码。",
+    "descriptionEn": "Composer completion and editing for DeepSeek Harness: brackets pair up, typing an opener over a selection wraps it, a closer over an existing closer is skipped, backspace removes an empty pair; quotes insert a single character (the closer is added on demand by quote-family parity, so mixed full-width/half-width counts as one pair) which avoids stray quotes when typing fast. Completion is hosted by the input-trigger menu (ctx.inputTriggers): `@` for workspace files and model ids, and a `/` group that carries the strict-pairing toggle; plain words still open a popup after two letters (draft words, per-language keywords, file paths, model ids) with a header line naming the word table it used. Standard DSH bundle plugin: one command to install, no third-party runtime dependency, no file writes, no host source changes.",
     "repo": "https://github.com/mengge237/dsh-composer-ease",
     "category": "ui",
     "subcategory": "chat"
