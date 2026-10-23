@@ -1689,11 +1689,11 @@
   },
   {
     "id": "dsh-composer-ease",
-    "name": "更便捷的输入框",
+    "name": "便捷输入框",
     "nameEn": "Composer Ease",
     "author": "mengge237",
-    "description": "DSH 网页输入框的补全与编辑增强：括号成对、选中即环绕、跳过闭符、退格删空对；引号只插一个（闭符由家族奇偶在需要时补，全角半角混写也算一对），避免快速连打冒出多余引号。补全走宿主输入触发菜单（ctx.inputTriggers）：`@` 给工作区文件与模型名，`/` 里我们那组提供「严格配对」开关；普通词仍有两个字母起自动弹的弹层（草稿词 / 各语言关键字 / 文件路径 / 模型名），顶上标出「凭什么给这张词表」。标准 DSH bundle 插件：一条命令安装，不依赖第三方运行时、不写任何文件、不改宿主源码。",
-    "descriptionEn": "Composer completion and editing for DeepSeek Harness: brackets pair up, typing an opener over a selection wraps it, a closer over an existing closer is skipped, backspace removes an empty pair; quotes insert a single character (the closer is added on demand by quote-family parity, so mixed full-width/half-width counts as one pair) which avoids stray quotes when typing fast. Completion is hosted by the input-trigger menu (ctx.inputTriggers): `@` for workspace files and model ids, and a `/` group that carries the strict-pairing toggle; plain words still open a popup after two letters (draft words, per-language keywords, file paths, model ids) with a header line naming the word table it used. Standard DSH bundle plugin: one command to install, no third-party runtime dependency, no file writes, no host source changes.",
+    "description": "把 DSH 输入框做成 VS Code 手感：引号/括号自动配对（含全角），引号可选「自动补对 / 未闭合标红提示」两档；补全弹层用 VS Code 的 fuzzyScore 打分，候选含常用文件名（README.md、package.json、AGENTS.md 等）、本文词、语言词表、工作区文件与模型名，打满两个字母自动弹、Tab 接受、回车保持发送。标准 DSH bundle 插件：一条命令安装，不依赖第三方运行时、不写任何文件、不改宿主源码。",
+    "descriptionEn": "VS Code feel for the DSH composer: auto-pairs for brackets and quotes (full-width included), with a quote mode that either auto-closes or marks unclosed quotes in red; completion scores with VS Code's fuzzyScore over common filenames (README.md, package.json, AGENTS.md …), draft words, language lexicons, workspace files and model names — opens at two characters, Tab accepts, Enter still sends. Standard DSH bundle plugin: one-line install, no third-party runtime, no file writes, no host patches.",
     "repo": "https://github.com/mengge237/dsh-composer-ease",
     "category": "ui",
     "subcategory": "chat"
