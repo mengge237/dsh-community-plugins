@@ -1406,5 +1406,17 @@
     "npm": "dsh-claude-style",
     "category": "ui",
     "subcategory": "render"
+  },
+  {
+    "id": "dsh-composer-ease",
+    "name": "便捷输入框",
+    "nameEn": "Composer Ease",
+    "author": "mengge237",
+    "description": "把 DSH 输入框做成 VS Code 手感：引号/括号自动配对（含全角），引号可选「自动补对 / 未闭合标红提示」两档；补全弹层用 VS Code 的 fuzzyScore 打分，候选含常用文件名（README.md、package.json、AGENTS.md 等）、本文词、语言词表、工作区文件与模型名，打满两个字母自动弹、Tab 接受、回车保持发送。",
+    "descriptionEn": "VS Code feel for the DSH composer: auto-pairs for brackets and quotes (full-width included), with a quote mode that either auto-closes or marks unclosed quotes in red; completion scores with VS Code's fuzzyScore over common filenames (README.md, package.json, AGENTS.md …), draft words, language lexicons, workspace files and model names — opens at two characters, Tab accepts, Enter still sends.",
+    "repo": "https://github.com/mengge237/dsh-composer-ease",
+    "npm": "dsh-composer-ease",
+    "category": "ui",
+    "subcategory": "chat"
   }
 ]
